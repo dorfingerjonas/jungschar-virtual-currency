@@ -1,0 +1,123 @@
+body {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+body > h1 {
+    text-align: center;
+    transition: opacity 400ms ease-in-out;
+    user-select: none;
+}
+
+body > div {
+    width: 70vw;
+    height: 100%;
+    transition: opacity 400ms ease-in-out;
+}
+
+.hide {
+    display: none !important;
+}
+
+#feedback {
+    min-width: 2em;
+    max-width: 15em;
+    height: 3em;
+    padding: .4vh .8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #3f3f3f;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    position: fixed;
+    top: 3vh;
+    right: -20em;
+    left: unset;
+    user-select: none;
+    box-shadow: 1px 1px 9px 0px #dbdbdb;
+    transition: right 300ms ease-in-out;
+}
+
+#feedback div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#feedback span {
+    width: 100%;
+    text-align: left;
+    margin-left: .75em;
+    font-size: 1.1em;
+}
+
+#feedback i {
+    font-size: 1.7em;
+}
+
+#feedback i:nth-child(1) {
+    color: #009bab;
+}
+
+#feedback i:nth-child(2) {
+    color: #dc5656;
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+    #feedback {
+        min-width: 9vw;
+        max-width: 90vw;
+        height: 3em;
+        padding: .4vh .8vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #3f3f3f;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 5px;
+        position: fixed;
+        top: 3vh;
+        right: -100vw;
+        left: unset;
+        user-select: none;
+        box-shadow: 1px 1px 9px 0px #dbdbdb;
+        transition: right 300ms ease-in-out;
+        z-index: 100;
+    }
+    
+    #feedback div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #feedback span {
+        width: 100%;
+        text-align: left;
+        margin-left: .75em;
+        font-size: 1.1em;
+    }
+    
+    #feedback i {
+        font-size: 1.7em;
+        margin-left: 1vw;
+    }
+    
+    #feedback i:nth-child(1) {
+        color: #009bab;
+    }
+    
+    #feedback i:nth-child(2) {
+        color: #dc5656;
+    }
+}
