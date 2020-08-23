@@ -1,0 +1,295 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+#logInScreen {
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    font-size: 4vmin;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: opacity 200ms ease-in-out;
+}
+
+#startScreen  {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+#startScreen img {
+    width: 10vw;
+    margin: 10vh 0 3vh 0;
+}
+
+#startScreen h1, #signInWrapper h1, #signUpWrapper h1 {
+    font-size: 1.5em;
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+    #startScreen img {
+        width: 55vw;
+    }
+
+    #startScreen h1, #signInWrapper h1, #signUpWrapper h1 {
+        font-size: 2em;
+    }
+}
+
+#startScreen #buttonWrapper {
+    width: 20vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    margin: 10vh 0;
+}
+
+.startButton {
+    width: 100%;
+    border-radius: 3px;
+    padding: .75vw 0;
+    margin: 2vh 0 2vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #efbe3e;
+    color: white;
+    box-shadow: 1px 1px 9px 0px #dbdbdb;
+    letter-spacing: .35px;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+}
+
+#buttonWrapper span {
+    font-size: 2.5vmin;
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+    #startScreen #buttonWrapper {
+        width: 75vw;
+    }
+
+    .startButton {
+        padding: 3vw;
+    }
+    
+    #buttonWrapper span {
+        font-size: 4.2vmin;
+    }
+}
+
+#emailWrapper {
+    min-width: 200vw;
+    height: 100vh;
+    position: relative;
+    left: 0;
+    overflow-x: scroll;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    transition: left 400ms ease-in-out;
+}
+
+#signInWrapper, #signUpWrapper {
+    min-width: 100vw;
+    height: 65vh;
+    margin-top: 9vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 200ms ease-in-out;
+}
+
+#passwordForgot, #goToSignUp, #goToSignIn {
+    width: 30vw;
+    text-align: left;
+    color: cornflowerblue;
+    text-decoration: underline;
+    font-size: 2vmin;
+    cursor: pointer;
+}
+
+.continueWithEmail {
+    width: 30vw;
+    margin-top: 10vh;
+}
+
+#logInScreen input {
+    border: none;
+    border-bottom: 2px solid lightgray;
+    width: 100%;
+    font-size: 2.5vmin;
+    margin: 1.5vh 0;
+    padding: .1rem;
+    outline: none;
+    transition: 200ms ease-in-out border-color;
+}
+
+#logInScreen input:focus {
+    border-color: #efbe3e;
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+    #passwordForgot, #goToSignUp, #goToSignIn {
+        width: 70vw;
+    }
+
+    #passwordForgot, #goToSignUp, #goToSignIn {
+        width: 70vw;
+        font-size: 4vmin;
+    }
+    
+    .continueWithEmail {
+        width: 70vw;
+        margin-top: 10vh;
+    }
+    
+    #logInScreen input {
+        width: 100%;
+        font-size: 4vmin;
+        margin: 1.5vh 0;
+        padding: .1rem;
+    }
+}
+
+.btnWrapper {
+    width: 30vw;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#logInScreen .button {
+    border-radius: 3px;
+    outline: none;
+    padding: 1.25vmin 2vmin;
+    font-size: 3vmin;
+    margin-bottom: 5vh;
+    background: #03a87c;
+    color: white;
+    border: #03a87c;
+    box-shadow: 1px 1px 9px 0px #dbdbdb;
+    letter-spacing: .35px;
+    user-select: none;
+    cursor: pointer;
+}
+
+#backButton {
+    width: 10vw;
+    position: fixed;
+    left: 45vw;
+    bottom: 5vh;
+    font-size: 2.5vmin;
+    transition: opacity 200ms ease-in-out;
+}
+
+#logInScreen p {
+    margin: .5vh 0;
+}
+
+#buttonWrapper > p {
+    width: 80vw;
+    position: fixed;
+    bottom: 5vh;
+    font-size: 3vmin;
+    text-align: left;
+}
+
+#buttonWrapper a {
+    color: black;
+    text-decoration: underline;
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+    .btnWrapper {
+        width: 70vw;
+    }
+    
+    #logInScreen .button {
+        padding: 3vmin;
+        font-size: 4vmin;
+    }
+    
+    #backButton {
+        width: 30%;
+        font-size: 4vmin;
+        left: 32vw;
+    }
+}
+
+.pwWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pwWrapper input {
+    width: 93% !important; 
+}
+
+.pwWrapper i {
+    font-size: 2.5vmin;
+}
+
+#unUpFeedback, #emUpFeedback, #usInFeedback {
+    color: red;
+    font-size: 2vmin;
+    text-align: left;
+    margin: 0 0 1vh 0 !important;
+    width: 100%;
+}
+
+#pwUpFeedback, #pwInFeedback {
+    width: 70vw;
+    margin: 0 0 3vh 0 !important;
+    font-size: 2vmin;
+    text-align: left;
+    color: red;
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+    .pwWrapper input {
+        width: 88% !important; 
+    }
+
+    .pwWrapper i {
+        font-size: 4vmin;
+    }
+
+    #unUpFeedback, #emUpFeedback, #usInFeedback {
+        color: red;
+        font-size: 3.5vmin;
+        text-align: left;
+        margin: 0 0 1vh 0 !important;
+        width: 100%;
+    }
+
+    #pwUpFeedback, #pwInFeedback {
+        width: 70vw;
+        margin: 0 0 3vh 0 !important;
+        font-size: 3.5vmin;
+    }
+}
+
+.errorInput {
+    border-color: red !important;
+}
+
+.errorInput:focus {
+    border-color: red !important;
+}
