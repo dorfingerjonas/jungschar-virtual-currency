@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang='de'>
+<head>
+    <!-- General -->
+    <title>Jungschar Währung</title>
+    <!-- Meta -->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='author' content='Jonas Dorfinger'>
+    <!-- CSS Files -->
+    <link rel='stylesheet' href='../style/main.css'>
+    <link rel='stylesheet' href='../style/join.css'>
+    <link rel='stylesheet' href='../style/loading.css'>
+    <!-- JavaScript Files -->
+    <script src='../scripts/main.js'></script>
+    <script src='../scripts/join.js'></script>
+    <script src='../scripts/loading.js'></script>
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet'>
+    <!-- Libraries -->
+    <script src='https://kit.fontawesome.com/e7df220bd7.js' crossorigin='anonymous'></script>
+    <!-- Firebase -->
+    <script src='https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/7.18.0/firebase-auth.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/7.18.0/firebase-database.js'></script>
+</head>
+<body>
+    <div id='logInScreen'>
+      <div id='startScreen'>
+        <img id='startBanner' src='../img/PfarrLogo.jpg' alt='cannot display image'>
+        <h1>Willkommen!</h1>
+
+        <div id='buttonWrapper'>
+          <div class='startButton' id='continueWithSignIn'>
+            <span>Anmelden</span>
+          </div>
+
+          <div class='startButton' id='continueWithSignUp'>
+            <span>Registrieren</span>
+          </div>
+        </div>
+      </div>
+
+      <div id='emailWrapper' class='hide'>
+        <div id='signInWrapper'>
+          <h1>Anmelden</h1>
+            
+          <div class='continueWithEmail'>
+            <input type='text' placeholder='Benutzername' id='usernameIn' autocomplete='name'>
+
+            <p id='usInFeedback'></p>
+
+            <div class='pwWrapper'>
+              <input type='password' placeholder='Passwort' id='passwordIn' autocomplete='current-password'>
+              <i class='fas fa-eye' id='eyePwIn'></i>
+            </div>
+
+            <p id='pwInFeedback'></p>
+
+            <div class='btnWrapper'>
+              <div class='button' id='signInBtn'>
+                <span id='signInBtnText'>Anmelden</span>
+              </div>
+            </div>
+          </div>
+
+          <div></div>
+  
+          <div>
+            <p id='goToSignUp'>Kein Account? Registrieren!</p>
+          </div>
+        </div>
+  
+        <div id='signUpWrapper'>
+          <h1>Registrieren</h1>
+  
+          <div class='continueWithEmail'>
+            <input type='text' placeholder='Benutzername' id='usernameUp' maxlength='25' autocomplete='name'>
+
+            <p id='unUpFeedback'></p>
+
+            <div class='pwWrapper'>
+              <input type='password' placeholder='Passwort' id='passwordUp' autocomplete='new-password'>
+              <i class='fas fa-eye' id='eyePwUp'></i>
+            </div>
+
+            <p id='pwUpFeedback'></p>
+
+            <div class='btnWrapper'>
+              <div class='button' id='signUpBtn'>
+                <span id='signUpBtnText'>Registrieren</span>
+              </div>
+            </div>
+          </div>
+          
+          <p id='goToSignIn'>Bereits registriert? Anmelden!</p>
+        </div>
+
+        <div class='startButton' id='backButton'>
+          <span>Zurück</span>
+        </div>
+      </div>
+  </div>
+
+  <div id='loader' class='hide'>
+    <div class='lds-ellipsis'>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</body>
+</html>
