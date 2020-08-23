@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='de'>
+<head>
+    <!-- General -->
+    <title>Jungschar Währung</title>
+    <!-- Meta -->
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <!-- CSS Files -->
+    <link rel='stylesheet' href='./style/main.css'>
+    <link rel='stylesheet' href='./style/entries.css'>
+    <link rel='stylesheet' href='./style/loading.css'>
+    <!-- JavaScript Files -->
+    <script src='./scripts/main.js'></script>
+    <script src='./scripts/entries.js'></script>
+    <script src='./scripts/loading.js'></script>
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet'>
+    <!-- Libraries -->
+    <script src='https://kit.fontawesome.com/e7df220bd7.js' crossorigin='anonymous'></script>
+    <!-- Firebase -->
+    <script src='https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/7.18.0/firebase-auth.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/7.18.0/firebase-database.js'></script>
+</head>
+<body>
+    <h1 id='headline'>Jungschar Währung</h1>
+
+    <div id='entriesWrapper'></div>
+
+    <i id='openTransactionWindow' class='fas fa-plus'></i>
+    
+    <div id='transactionWindow' class='hide'></div>
+
+    <div id='disableTransactionWindow' class='hide'></div>
+
+    <div id="loader" class="hide">
+        <div class="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+    </div>
+</body>
+</html>
