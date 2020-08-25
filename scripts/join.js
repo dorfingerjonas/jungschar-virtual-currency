@@ -196,6 +196,7 @@ window.addEventListener('load', () => {
             }
 
             const promise = firebase.auth().createUserWithEmailAndPassword(email, password.value);
+
             promise.catch((error) => {
                 const errorMsg = error.message;
                 const messages = [
