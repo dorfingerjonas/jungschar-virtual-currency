@@ -1,0 +1,32 @@
+#nav {
+    display: none;
+}
+
+#entriesWrapper {
+    width: 98vw;
+    height: 2000vh;
+}
+
+.entry {
+    display: none;
+    border-radius: 0;
+    border: 1px solid #000;
+    box-shadow: none;
+    background: cornflowerblue;
+    page-break-after: always;
+}
+
+.entry:nth-child(2n) {
+    border-radius: 50%;
+    page-break-after: always;
+    widows: 8;
+}
+
+.entry img {
+    width: 10vw;
+    user-select: none;
+}
+
+.selected {
+    display: flex !important;
+}
