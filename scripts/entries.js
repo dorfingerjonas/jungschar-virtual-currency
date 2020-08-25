@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
 
             for (let i = 0; i < entries.length; i++) {
                 for (let j = i; j < entries.length; j++) {
-                    if (entries[i].name > entries[j].name) {
+                    if (entries[i].name.toLowerCase() > entries[j].name.toLowerCase()) {
                         const temp = entries[i];
                         entries[i] = entries[j];
                         entries[j] = temp;
@@ -362,13 +362,29 @@ function printTransactionContent(entries) {
                         ).then(() => {
                             showFeedbackMessage(true, 'Transaktion abgeschlossen');
                             document.getElementById('openTransactionWindow').click();
+
+                            let key = Date.now();
+
+                            firebase.database().ref(`entries/${dispatcher.key}/history/${key}`).set({
+                                amount: -parseInt(input.value),
+                                executer: firebase.auth().currentUser.uid,
+                                key
+                            }).then(() => {
+                                key = Date.now();
+
+                                firebase.database().ref(`entries/${receiver.key}/history/${key}`).set({
+                                    amount: parseInt(input.value),
+                                    executer: firebase.auth().currentUser.uid,
+                                    key
+                                });
+                            });
                         });
                     });
                 } else {
                     showFeedbackMessage(false, 'Absender und Empfänger gleich');
                 }
             } else {
-                showFeedbackMessage(false, 'Zu wenig Geld am Konto')
+                showFeedbackMessage(false, 'Zu wenig Geld am Konto');
             }
         } else {
             showFeedbackMessage(false, 'Ungültige Eingabe');
