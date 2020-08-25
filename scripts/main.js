@@ -20,6 +20,14 @@ window.addEventListener('load', () => {
             if (window.location.href.includes('/join')) {
                 window.location.href = '../';
             }
+
+            firebase.database().ref(`users/${firebase.auth().currentUser.uid}`).once('value').then(snapshot => {
+                if (snapshot.val() === null) {
+                    firebase.database().ref(`users/${firebase.auth().currentUser.uid}`).set({
+                        username: getUsernameFromMail(user.email).trim().toLowerCase()
+                    });
+                }
+            });
         } else {
             if (!window.location.href.includes('/join')) {
                 window.location.href = './join';
@@ -27,3 +35,7 @@ window.addEventListener('load', () => {
         }
     });
 });
+
+function getUsernameFromMail(email) {
+    return email.replace('@mail.com', '');
+}
