@@ -40,12 +40,28 @@ function printEntries(entries) {
 
 		name.textContent = entry.name;
 		subText.textContent = 'Spielestadt "Loga dahoam", 2020';
+		
+		const expressions = [
+			{replace: '+', search: ' '},
+			{replace: '%20', search: ' '},
+			{replace: 'ue', search: 'ü'},
+			{replace: 'oe', search: 'ö'},
+			{replace: 'ae', search: 'ä'},
+		];
+	
+		if (entry !== undefined) {
+			for (const expression of expressions) {
+				while (entry.name.includes(expression.search)) {
+					entry.name = entry.name.replace(expression.search, expression.replace);
+				}
+			}
+		}
 
 		new QRCode(qrCode, {
 			width : 1024,
 			height : 1024,
 			text: `https://dorfingerjonas.at/jungschar-virtual-currency?name=${entry.name}`,
-			correctLevel : QRCode.CorrectLevel.H
+			correctLevel : QRCode.CorrectLevel.L
 		});
 
 		newEntry.group = entry.group;
@@ -82,7 +98,9 @@ function handleButtons() {
 
 	clearSelection.addEventListener('click', () => {
 		for (const entry of entries) {
-			entry.element.classList.remove('selected');
+			if (entry.element !== undefined) {
+				entry.element.classList.remove('selected');
+			}
 		}
 	});
 
