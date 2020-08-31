@@ -14,7 +14,7 @@ body {
     box-shadow: 1px 1px 9px 0px #dbdbdb;
     user-select: none;
     cursor: pointer;
-    transition: background 400ms cubic-bezier(0.23, 1, 0.320, 1);
+    transition: background 400ms cubic-bezier(0.23, 1, 0.320, 1), color 400ms cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .entry p, .entry > div {
@@ -34,7 +34,7 @@ body {
 }
 
 .entry .redGroup div {
-    background: #e56b6b;
+    background: #fcd04b;
 }
 
 .entry .blueGroup div {
@@ -46,7 +46,8 @@ body {
 }
 
 .selected {
-    background: #ffeeab;
+    background: #e56b6b;
+    color: #fff;
 }
 
 @media screen and (max-aspect-ratio: 1/1) {
