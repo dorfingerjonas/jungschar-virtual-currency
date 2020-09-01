@@ -12,7 +12,8 @@
     margin: 1.3vh 0;
     border-radius: 0;
     border: 1px solid #000;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     background: cornflowerblue;
     page-break-after: always;
 }
@@ -23,9 +24,14 @@
 
 .entry img {
     width: 10vw;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 .selected {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
     display: flex !important;
 }

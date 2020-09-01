@@ -6,14 +6,29 @@ body {
     width: 80%;
     margin: 1.25em 0 1.25em 2.5%;
     padding: 0 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     border-radius: 5px;
-    box-shadow: 1px 1px 9px 0px #dbdbdb;
-    user-select: none;
+    -webkit-box-shadow: 1px 1px 9px 0px #dbdbdb;
+            box-shadow: 1px 1px 9px 0px #dbdbdb;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     cursor: pointer;
+    -webkit-transition: background 400ms cubic-bezier(0.23, 1, 0.320, 1), color 400ms cubic-bezier(0.23, 1, 0.320, 1);
+    -o-transition: background 400ms cubic-bezier(0.23, 1, 0.320, 1), color 400ms cubic-bezier(0.23, 1, 0.320, 1);
     transition: background 400ms cubic-bezier(0.23, 1, 0.320, 1), color 400ms cubic-bezier(0.23, 1, 0.320, 1);
 }
 
@@ -29,8 +44,12 @@ body {
 }
 
 .entry > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .entry .redGroup div {
@@ -59,7 +78,10 @@ body {
         width: 100%;
         margin: 5vh 0;
         padding: 0 0 0 0;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
     .entry p:nth-child(1) {
@@ -87,48 +109,88 @@ body {
 }
 
 /* Transaction Window */
-#openTransactionWindow {
+#openTransactionWindow, #signOut {
     width: 2em;
     height: 2em;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     position: fixed;
     bottom: 3vh;
     right: 3vh;
-    box-shadow: 1px 1px 9px 0px #dbdbdb;
+    -webkit-box-shadow: 1px 1px 9px 0px #dbdbdb;
+            box-shadow: 1px 1px 9px 0px #dbdbdb;
     border-radius: 50%;
     font-size: 1.5em;
     color: #42b983;
     background: #fff;
     cursor: pointer;
+    -webkit-transition: -webkit-transform 400ms cubic-bezier(0.23, 1, 0.320, 1);
+    transition: -webkit-transform 400ms cubic-bezier(0.23, 1, 0.320, 1);
+    -o-transition: transform 400ms cubic-bezier(0.23, 1, 0.320, 1);
     transition: transform 400ms cubic-bezier(0.23, 1, 0.320, 1);
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.320, 1), -webkit-transform 400ms cubic-bezier(0.23, 1, 0.320, 1);
     z-index: 101;
 }
 
+#signOut {
+    -webkit-transform: rotateZ(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotateZ(180deg);
+    bottom: 12vh;
+}
+
 .clicked {
-    transform: rotateZ(45deg);
+    -webkit-transform: rotateZ(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotateZ(45deg);
 }
 
 #transactionWindow {
     width: 50vw;
     height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     background: white;
     position: fixed;
     left: 25vw;
     top: 20vh;
     padding: 1em;
     border-radius: 5px;
-    box-shadow: 1px 1px 9px 0px #dbdbdb;
+    -webkit-box-shadow: 1px 1px 9px 0px #dbdbdb;
+            box-shadow: 1px 1px 9px 0px #dbdbdb;
     opacity: 0;
-    transform: scale(.6);
+    -webkit-transform: scale(.6);
+        -ms-transform: scale(.6);
+            transform: scale(.6);
+    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, -webkit-transform;
+    -o-transition-property: opacity, transform;
     transition-property: opacity, transform;
-    transition-duration: 400ms;
-    transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+    transition-property: opacity, transform, -webkit-transform;
+    -webkit-transition-duration: 400ms;
+         -o-transition-duration: 400ms;
+            transition-duration: 400ms;
+    -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+         -o-transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+            transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
     z-index: 99;
 }
 
@@ -136,27 +198,50 @@ body {
     #transactionWindow {
         width: 90vw;
         height: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         background: white;
         position: fixed;
         left: 5vw;
         top: 7vh;
         padding: 1em 0;
         border-radius: 5px;
-        box-shadow: 1px 1px 9px 0px #dbdbdb;
+        -webkit-box-shadow: 1px 1px 9px 0px #dbdbdb;
+                box-shadow: 1px 1px 9px 0px #dbdbdb;
         opacity: 0;
-        transform: scale(.6);
+        -webkit-transform: scale(.6);
+            -ms-transform: scale(.6);
+                transform: scale(.6);
+        -webkit-transition-property: opacity, -webkit-transform;
+        transition-property: opacity, -webkit-transform;
+        -o-transition-property: opacity, transform;
         transition-property: opacity, transform;
-        transition-duration: 400ms;
-        transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+        transition-property: opacity, transform, -webkit-transform;
+        -webkit-transition-duration: 400ms;
+             -o-transition-duration: 400ms;
+                transition-duration: 400ms;
+        -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+             -o-transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+                transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
         z-index: 99;
     }
 
     #transactionWindow .personRow {
-        flex-direction: column !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-box-direction: normal !important;
+            -ms-flex-direction: column !important;
+                flex-direction: column !important;
         height: 25vh;
     }
 }
@@ -165,30 +250,56 @@ body {
     text-align: center;
     font-size: 1.7em;
     margin: .5em 0 1.5em 0;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 #transactionWindow .personRow, #transactionWindow .bankBalanceRow, #transactionWindow .inputRow {
     width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
 
 #transactionWindow .dispatcherWrapper, #transactionWindow .receiverWrapper {
     width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     font-size: 1.3em;
 }
 
 #transactionWindow .bankBalanceRow .dispatcherWrapper, #transactionWindow .bankBalanceRow .receiverWrapper {
     width: 100%;
-    flex-direction: column;
-    justify-content: space-evenly;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
 }
 
 #transactionWindow .dispatcherWrapper select, #transactionWindow .receiverWrapper select {
@@ -201,7 +312,9 @@ body {
 }
 
 #transactionWindow .inputRow {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 #transactionWindow .inputRow input {
@@ -212,6 +325,8 @@ body {
     margin: 2em;
     font-size: 1.2em;
     outline: none;
+    -webkit-transition: border-color 250ms ease-in-out;
+    -o-transition: border-color 250ms ease-in-out;
     transition: border-color 250ms ease-in-out;
 }
 
@@ -228,8 +343,14 @@ body {
     border: 2px solid #42b983;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 1px 1px 9px 0px #dbdbdb;
-    user-select: none;
+    -webkit-box-shadow: 1px 1px 9px 0px #dbdbdb;
+            box-shadow: 1px 1px 9px 0px #dbdbdb;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -webkit-transition: color 250ms ease-in-out;
+    -o-transition: color 250ms ease-in-out;
     transition: color 250ms ease-in-out;
 }
 
@@ -242,6 +363,8 @@ body {
     top: 0;
     left: 0;
     border-radius: 3px;
+    -webkit-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
     transition: all 250ms ease-in-out;
   }
 

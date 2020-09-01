@@ -6,14 +6,25 @@
     text-align: center;
     width: 100vw;
     height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     font-size: 4vmin;
     position: fixed;
     top: 0;
     left: 0;
+    -webkit-transition: opacity 200ms ease-in-out;
+    -o-transition: opacity 200ms ease-in-out;
     transition: opacity 200ms ease-in-out;
 }
 
@@ -22,10 +33,19 @@
     height: 100vh;
     overflow: hidden;
     background: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 #startScreen img {
@@ -49,10 +69,19 @@
 
 #startScreen #buttonWrapper {
     width: 20vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin: 10vh 0;
 }
 
@@ -61,16 +90,26 @@
     border-radius: 3px;
     padding: .75vw 0;
     margin: 2vh 0 2vh 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     text-align: center;
     background: #efbe3e;
     color: white;
-    box-shadow: 1px 1px 9px 0px #dbdbdb;
+    -webkit-box-shadow: 1px 1px 9px 0px #dbdbdb;
+            box-shadow: 1px 1px 9px 0px #dbdbdb;
     letter-spacing: .35px;
     cursor: pointer;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     outline: none;
 }
 
@@ -98,10 +137,21 @@
     position: relative;
     left: 0;
     overflow-x: scroll;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-transition: left 400ms ease-in-out;
+    -o-transition: left 400ms ease-in-out;
     transition: left 400ms ease-in-out;
 }
 
@@ -109,10 +159,21 @@
     min-width: 100vw;
     height: 65vh;
     margin-top: 9vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transition: opacity 200ms ease-in-out;
+    -o-transition: opacity 200ms ease-in-out;
     transition: opacity 200ms ease-in-out;
 }
 
@@ -138,6 +199,8 @@
     margin: 1.5vh 0;
     padding: .1rem;
     outline: none;
+    -webkit-transition: 200ms ease-in-out border-color;
+    -o-transition: 200ms ease-in-out border-color;
     transition: 200ms ease-in-out border-color;
 }
 
@@ -170,8 +233,12 @@
 
 .btnWrapper {
     width: 30vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 #logInScreen .button {
@@ -183,9 +250,13 @@
     background: #03a87c;
     color: white;
     border: #03a87c;
-    box-shadow: 1px 1px 9px 0px #dbdbdb;
+    -webkit-box-shadow: 1px 1px 9px 0px #dbdbdb;
+            box-shadow: 1px 1px 9px 0px #dbdbdb;
     letter-spacing: .35px;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     cursor: pointer;
 }
 
@@ -195,6 +266,8 @@
     left: 45vw;
     bottom: 5vh;
     font-size: 2.5vmin;
+    -webkit-transition: opacity 200ms ease-in-out;
+    -o-transition: opacity 200ms ease-in-out;
     transition: opacity 200ms ease-in-out;
 }
 
@@ -233,9 +306,15 @@
 }
 
 .pwWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .pwWrapper input {
