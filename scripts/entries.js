@@ -10,6 +10,7 @@ window.addEventListener('load', () => {
     const openTransactionWindow = document.getElementById('openTransactionWindow');
     const transactionWindow = document.getElementById('transactionWindow');
     const disableTransactionWindow = document.getElementById('disableTransactionWindow');
+    const signOut = document.getElementById('signOut');
 
     firebase.database().ref('currency').on('value', currency => {
         currency = currency.val();
@@ -94,6 +95,10 @@ window.addEventListener('load', () => {
     disableTransactionWindow.addEventListener('click', () => {
         openTransactionWindow.click();
     });
+
+    signOut.addEventListener('click', () => {
+        firebase.auth().signOut();
+    });
 });
 
 function printEntries(entries, currency) {
@@ -121,11 +126,26 @@ function printEntries(entries, currency) {
 
         newEntry.addEventListener('click', () => {
             const elements = document.getElementsByClassName('selected');
+            const params = sessionStorage.getItem('params');
 
             if (newEntry.className.includes('selected')) {
                 newEntry.classList.remove('selected');
+
+                if (params) {
+                    let data = JSON.parse(params);
+                    data = data.filter(e => e != entry.name);
+                    sessionStorage.setItem('params', JSON.stringify(data));
+                }
             } else if (elements.length < 2) {
                 newEntry.classList.add('selected');
+
+                if (params) {
+                    const data = JSON.parse(params);
+                    data.push(entry.name);
+                    sessionStorage.setItem('params', JSON.stringify(data));
+                } else {
+                    sessionStorage.setItem('params', JSON.stringify([entry.name]));
+                }
             }
         });
 
@@ -138,29 +158,6 @@ function printEntries(entries, currency) {
     }
 
     selectUrlEntries();
-}
-
-function getUrlParams(url) {
-    if (url !== undefined && url !== null && url.trim() !== '') {
-        const params = [];
-        const parts = url.split('?');
-
-        for (let i = 1; i < parts.length; i++) {
-            if (parts[i].includes('&')) {
-                const subPart = parts[i].split('&');
-
-                for (const part of subPart) {
-                    const splitted = part.split('=');
-                    params[`${splitted[0]}`] = splitted[1];
-                }
-            } else {
-                const subPart = parts[i].split('=');
-                params[`${subPart[0]}`] = subPart[1];
-            }
-        }
-
-        return params;
-    }
 }
 
 function showFeedbackMessage(success, headline) {
@@ -445,26 +442,57 @@ function handleInputChangeEvent() {
 }
 
 function selectUrlEntries() {
-    const urlParams = getUrlParams(window.location.href);
+    let params = getUrlParams(window.location.href);
+    let storageParams;
     const entries = document.getElementsByClassName('entry');
     const expressions = [
+        {search: '+', replace: ' '},
         {search: '%20', replace: ' '},
         {search: 'ue', replace: 'ü'},
         {search: 'oe', replace: 'ö'},
         {search: 'ae', replace: 'ä'},
     ];
 
-    if (urlParams['name'] !== undefined && urlParams['name2'] !== undefined) {
-        for (const expression of expressions) {
+    if (params['name'] === undefined && params['name2'] === undefined) {
+        if (sessionStorage.getItem('params')) {
+            params = JSON.parse(sessionStorage.getItem('params'));
+            storageParams = [];
+            
+            if (params[0] !== undefined) {
+                storageParams['name'] = params[0];
+                
+                if (params[1] !== undefined) {
+                    storageParams['name2'] = params[1];
+                }
+            } else {
+                storageParams = [];
+            }
+        }
+    }
+
+    let urlParams = [];
+
+    if (storageParams === undefined) {
+        urlParams = params;
+    } else {
+        urlParams = storageParams;
+    }
+
+    for (const expression of expressions) {
+        if (urlParams['name'] !== undefined) {
             while (urlParams['name'].includes(expression.search)) {
                 urlParams['name'] = urlParams['name'].replace(expression.search, expression.replace);
             }
-      
+        }
+    
+        if (urlParams['name2'] !== undefined) {
             while (urlParams['name2'].includes(expression.search)) {
                 urlParams['name2'] = urlParams['name2'].replace(expression.search, expression.replace);
             }
         }
     }
+
+    sessionStorage.setItem('params', JSON.stringify([]));
 
     for (const entry of entries) {
         if (urlParams['name'] === entry.children[0].textContent || urlParams['name2'] === entry.children[0].textContent) {
