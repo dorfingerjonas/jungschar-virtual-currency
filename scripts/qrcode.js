@@ -88,7 +88,6 @@ function handleButtons() {
 	const selectCompanies = document.getElementById('selectCompanies');
 	const selectRed = document.getElementById('selectRed');
 	const selectBlue = document.getElementById('selectBlue');
-	const print = document.getElementById('print');
 
 	selectAll.addEventListener('click', () => {
 		for (const entry of entries) {
@@ -133,9 +132,4 @@ function handleButtons() {
 			}
 		}
 	});
-
-	print.addEventListener('click', () => {
-
-	});
-
 }
