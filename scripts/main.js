@@ -29,6 +29,16 @@ window.addEventListener('load', () => {
                 }
             });
         } else {
+            const params = getUrlParams(window.location.href);
+
+            if (params['name'] !== undefined) {
+                if (params['name2'] !== undefined) {
+                    sessionStorage.setItem('params', JSON.stringify([params['name'], params['name2']]));
+                } else {
+                    sessionStorage.setItem('params', JSON.stringify([params['name']]));
+                }
+            }
+
             if (!window.location.href.includes('/join')) {
                 window.location.href = './join';
             }
@@ -38,4 +48,27 @@ window.addEventListener('load', () => {
 
 function getUsernameFromMail(email) {
     return email.replace('@mail.com', '');
+}
+
+function getUrlParams(url) {
+    if (url !== undefined && url !== null && url.trim() !== '') {
+        const params = [];
+        const parts = url.split('?');
+
+        for (let i = 1; i < parts.length; i++) {
+            if (parts[i].includes('&')) {
+                const subPart = parts[i].split('&');
+
+                for (const part of subPart) {
+                    const splitted = part.split('=');
+                    params[`${splitted[0]}`] = splitted[1];
+                }
+            } else {
+                const subPart = parts[i].split('=');
+                params[`${subPart[0]}`] = subPart[1];
+            }
+        }
+
+        return params;
+    }
 }
