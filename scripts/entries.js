@@ -451,6 +451,7 @@ function selectUrlEntries() {
         {search: 'ue', replace: 'ü'},
         {search: 'oe', replace: 'ö'},
         {search: 'ae', replace: 'ä'},
+        {search: 'ss', replace: 'ß'},
     ];
 
     if (params['name'] === undefined && params['name2'] === undefined) {

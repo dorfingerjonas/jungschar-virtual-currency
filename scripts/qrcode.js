@@ -47,6 +47,7 @@ function printEntries(entries) {
 			{replace: 'ue', search: 'ü'},
 			{replace: 'oe', search: 'ö'},
 			{replace: 'ae', search: 'ä'},
+			{replace: 'ss', search: 'ß'},
 		];
 	
 		if (entry !== undefined) {
@@ -63,6 +64,10 @@ function printEntries(entries) {
 			text: `https://dorfingerjonas.at/jungschar-virtual-currency?name=${entry.name}`,
 			correctLevel : QRCode.CorrectLevel.L
 		});
+
+		if (entry.name.includes('Sarah')) {
+			console.log(entry.name);
+		}
 
 		newEntry.group = entry.group;
 
